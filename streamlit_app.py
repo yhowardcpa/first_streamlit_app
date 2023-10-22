@@ -19,9 +19,18 @@ streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
 streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Strawberries'])
 
-#Display the data on the page
 
+
+#Display the fruit list  on the page
 streamlit.dataframe(my_fruit_list)
+
+#put the list of selected fruits into a variable called fruits_selected
+fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Strawberries'])
+fruits_to_show = my_fruit_list.loc[fruits_selected]
+
+#display the selected fruit in a table on the page
+streamlit.dataframe(fruits_to_show)
+
 
    
 
