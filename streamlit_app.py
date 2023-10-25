@@ -51,7 +51,7 @@ try:
       fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
       # The normalized data is now placed in a table
       streamlit.dataframe(fruityvice_normalized)
-except URLError as e
+except URLError as e:
 streamlit.err
 
 #we caused an issue so let's not run until we troubleshoot
