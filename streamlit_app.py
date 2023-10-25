@@ -44,16 +44,20 @@ try:
    if not fruit_choice:
       streamlit.error("Please select a fruit to get information.")
    else:
-      fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ fruit_choice)
-      streamlit.text(fruityvice_response.json())  #just writes the value to the screen
-      
-      # Normalizes the json response from above
-      fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-      # The normalized data is now placed in a table
-      streamlit.dataframe(fruityvice_normalized)
+      back_from_function get fruityvice data(fruit_choice)
+      streamlit.dataframe(back_from_function
+      #createthe repeatable code block called a function
+      def getfruityvicedata(this_first_choice):
+         fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ this_fruit_choice)
+         streamlit.text(fruityvice_response.json())  #just writes the value to the screen
+         
+         # Normalizes the json response from above
+         fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+         # The normalized data is now placed in a table
+         return streamlit.dataframe(fruityvice_normalized)
 except URLError as e:
    streamlit.error()
-
+   
 #we caused an issue so let's not run until we troubleshoot
 streamlit.stop()
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
