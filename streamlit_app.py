@@ -52,7 +52,7 @@ try:
       # The normalized data is now placed in a table
       streamlit.dataframe(fruityvice_normalized)
 except URLError as e:
-streamlit.err
+   streamlit.error()
 
 #we caused an issue so let's not run until we troubleshoot
 streamlit.stop()
